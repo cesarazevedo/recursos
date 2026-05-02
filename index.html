@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recursos Recomendados — César Azevedo</title>
+  <style>
+    :root {
+      --bg: #fafaf8; --surface: #fff; --border: #e5e7eb;
+      --text: #111827; --text-sub: #4b5563; --text-muted: #9ca3af;
+      --header-bg: #fff; --tag-bg: #f3f4f6;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.07); --shadow-md: 0 4px 12px rgba(0,0,0,.09);
+      --c-indigo: #6366f1; --c-indigo-light: #eef2ff; --c-indigo-border: #c7d2fe;
+      --c-emerald: #10b981; --c-emerald-light: #ecfdf5; --c-emerald-border: #a7f3d0;
+      --c-rose: #f43f5e; --c-rose-light: #fff1f2; --c-rose-border: #fecdd3;
+      --c-amber: #f59e0b; --c-amber-light: #fffbeb; --c-amber-border: #fde68a;
+    }
+    [data-theme="dark"] {
+      --bg: #0f1117; --surface: #1e2130; --border: #2a2f45;
+      --text: #f1f5f9; --text-sub: #94a3b8; --text-muted: #64748b;
+      --header-bg: #161b2e; --tag-bg: #2a2f45;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.3); --shadow-md: 0 4px 12px rgba(0,0,0,.35);
+      --c-indigo-light: #1e1b4b; --c-indigo-border: #3730a3;
+      --c-emerald-light: #071f15; --c-emerald-border: #065f3a;
+      --c-rose-light: #2d0a12; --c-rose-border: #9f1239;
+      --c-amber-light: #292010; --c-amber-border: #78450a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; transition: background .25s, color .25s; }
+
+    /* HEADER */
+    .site-header { background: var(--header-bg); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow-sm); }
+    .header-inner { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .header-left { display: flex; align-items: center; gap: 1rem; }
+    .back-link { display: flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; color: var(--text-sub); text-decoration: none; padding: 0.3rem 0.7rem; border: 1px solid var(--border); border-radius: 8px; transition: color .15s, border-color .15s; }
+    .back-link:hover { color: var(--text); border-color: var(--text-muted); }
+    .header-title { font-size: 0.95rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; }
+    .header-title .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--c-indigo); }
+    .theme-btn { background: none; border: 1px solid var(--border); border-radius: 8px; padding: 0.3rem 0.55rem; cursor: pointer; font-size: 1rem; color: var(--text-muted); transition: border-color .15s; line-height: 1; }
+
+    /* HERO */
+    .hero { background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #164e63 100%); color: #fff; padding: 3.5rem 1.5rem 3rem; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 70% 30%, rgba(99,102,241,.2) 0%, transparent 50%), radial-gradient(circle at 20% 70%, rgba(16,185,129,.15) 0%, transparent 45%); }
+    .hero-content { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.75rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 1.1rem; }
+    .hero h1 { font-size: clamp(1.6rem, 4.5vw, 2.2rem); font-weight: 800; line-height: 1.2; margin-bottom: 0.75rem; }
+    .hero h1 span { color: #a5b4fc; }
+    .hero p { font-size: 0.95rem; color: rgba(255,255,255,.7); line-height: 1.7; }
+
+    /* MAIN */
+    .main { max-width: 1000px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+
+    /* SECTION */
+    .res-section { margin-bottom: 3rem; }
+    .res-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--border); }
+    .res-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+    .res-header h2 { font-size: 1rem; font-weight: 700; }
+    .res-header p { font-size: 0.78rem; color: var(--text-muted); margin-top: 1px; }
+    .res-count { margin-left: auto; font-size: 0.72rem; font-weight: 600; color: var(--text-muted); background: var(--tag-bg); border: 1px solid var(--border); border-radius: 999px; padding: 0.2rem 0.6rem; flex-shrink: 0; }
+
+    /* CARDS */
+    .res-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .res-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-sm); transition: transform .18s, box-shadow .18s; display: flex; flex-direction: column; }
+    .res-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .res-card-accent { height: 4px; }
+    .res-card-body { padding: 1.1rem 1.2rem; flex: 1; display: flex; flex-direction: column; gap: 0.4rem; }
+    .res-card-head { display: flex; align-items: flex-start; gap: 0.75rem; }
+    .res-card-icon { font-size: 1.6rem; flex-shrink: 0; line-height: 1; margin-top: 2px; }
+    .res-card-title { font-size: 0.92rem; font-weight: 700; color: var(--text); line-height: 1.3; }
+    .res-card-author { font-size: 0.72rem; color: var(--text-muted); margin-top: 1px; }
+    .res-card-desc { font-size: 0.79rem; color: var(--text-sub); line-height: 1.6; flex: 1; padding-top: 0.2rem; }
+    .res-card-footer { padding: 0.55rem 1.2rem; border-top: 1px solid var(--border); display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
+    .res-tag { font-size: 0.67rem; font-weight: 600; padding: 0.15rem 0.55rem; border-radius: 999px; border: 1px solid; }
+    .res-link { margin-left: auto; font-size: 0.75rem; font-weight: 600; text-decoration: none; transition: opacity .15s; }
+    .res-link:hover { opacity: .7; }
+
+    /* Color variants */
+    .cat-indigo .res-card-accent  { background: var(--c-indigo); }
+    .cat-indigo .res-tag          { background: var(--c-indigo-light); color: #3730a3; border-color: var(--c-indigo-border); }
+    .cat-indigo .res-link         { color: var(--c-indigo); }
+    .cat-indigo .res-icon         { background: var(--c-indigo-light); }
+    .cat-emerald .res-card-accent { background: var(--c-emerald); }
+    .cat-emerald .res-tag         { background: var(--c-emerald-light); color: #065f46; border-color: var(--c-emerald-border); }
+    .cat-emerald .res-link        { color: var(--c-emerald); }
+    .cat-emerald .res-icon        { background: var(--c-emerald-light); }
+    .cat-rose .res-card-accent    { background: var(--c-rose); }
+    .cat-rose .res-tag            { background: var(--c-rose-light); color: #9f1239; border-color: var(--c-rose-border); }
+    .cat-rose .res-link           { color: var(--c-rose); }
+    .cat-rose .res-icon           { background: var(--c-rose-light); }
+    .cat-amber .res-card-accent   { background: var(--c-amber); }
+    .cat-amber .res-tag           { background: var(--c-amber-light); color: #92400e; border-color: var(--c-amber-border); }
+    .cat-amber .res-link          { color: var(--c-amber); }
+    .cat-amber .res-icon          { background: var(--c-amber-light); }
+
+    /* FOOTER */
+    .site-footer { text-align: center; padding: 2rem 1rem; font-size: 0.75rem; color: var(--text-muted); border-top: 1px solid var(--border); }
+    .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 0.5rem; }
+    .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.75rem; transition: color .15s; }
+    .footer-links a:hover { color: var(--text-sub); }
+
+    /* RESPONSIVE */
+    @media (max-width: 560px) {
+      .main { padding: 2rem 1rem 3rem; }
+      .hero { padding: 2.5rem 1rem 2rem; }
+      .res-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <a class="back-link" href="https://cesarazevedo.github.io">← Início</a>
+      <div class="header-title"><div class="dot"></div>Recursos Recomendados</div>
+    </div>
+    <button class="theme-btn" id="themeBtn">🌙</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">📚 Curadoria</div>
+    <h1>Recursos para <span>aprender mais</span></h1>
+    <p>Livros, canais e podcasts cuidadosamente selecionados para aprofundar seu aprendizado — em português e inglês.</p>
+  </div>
+</section>
+
+<main class="main">
+
+  <!-- LIVROS -->
+  <section class="res-section cat-indigo">
+    <div class="res-header">
+      <div class="res-icon">📖</div>
+      <div><h2>Livros</h2><p>Leituras fundamentais sobre aprendizado e cognição</p></div>
+      <span class="res-count">5 livros</span>
+    </div>
+    <div class="res-grid">
+
+      <div class="res-card">
+        <div class="res-card-accent"></div>
+        <div class="res-card-body">
+          <div class="res-card-head">
+            <div class="res-card-icon">📘</div>
+            <div>
+              <div class="res-card-title">Make It Stick</div>
+              <div class="res-card-author">Peter Brown, Henry Roediger, Mark McDaniel</div>
+            </div>
+          </div>
+          <div class="res-card-desc">A ciência do aprendizado duradouro. Desmonta mitos como "reler funciona" e explica por que a recordação ativa e o espaçamento são superiores.</div>
+        </div>
+        <div class="res-card-footer">
+          <span class="res-tag">Inglês</span><span class="res-tag">Ciência Cognitiva</span>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <div class="res-card-accent"></div>
+        <div class="res-card-body">
+          <div class="res-card-head">
+            <div class="res-card-icon">📗</div>
+            <div>
+              <div class="res-card-title">Uma Mente para os Números</div>
+              <div class="res-card-author">Barbara Oakley</div>
+            </div>
+          </div>
+          <div class="res-card-desc">Como aprender matemática e ciências (mesmo sendo péssimo nelas). Explora os modos de pensamento focado vs. difuso. Base do famoso curso "Learning How to Learn".</div>
+        </div>
+        <div class="res-card-footer">
+          <span class="res-tag">Português</span><span class="res-tag">Estudo</span>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <div class="res-card-accent"></div>
+        <div class="res-card-body">
+          <div class="res-card-head">
+            <div class="res-card-icon">📙</div>
+            <div>
+              <div class="res-card-title">Ultralearning</div>
+              <div class="res-card-author">Scott Young</div>
+            </div>
+          </div>
+          <div class="res-card-desc">Estratégias de aprendizado acelerado e autodirigido. O autor aprendeu o currículo de 4 anos do MIT em 12 meses. Princípios aplicáveis a qualquer área.</div>
+        </div>
+        <div class="res-card-footer">
+          <span class="res-tag">Inglês</span><span class="res-tag">Autodidata</span>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <div class="res-card-accent"></div>
+        <div class="res-card-body">
+          <div class="res-card-head">
+            <div class="res-card-icon">📕</div>
+            <div>
+              <div class="res-card-title">O Poder do Hábito</div>
+              <div class="res-card-author">Charles Duhigg</div>
+            </div>
+          </div>
+          <div class="res-card-desc">Como hábitos funcionam e como transformá-los. Fundamental para criar e manter uma rotina de estudos consistente e sustentável.</div>
+        </div>
+        <div class="res-card-footer">
+          <span class="res-tag">Português</span><span class="res-tag">Hábitos</span>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <div class="res-card-accent"></div>
+        <div class="res-card-body">
+          <div class="res-card-head">
+            <div class="res-card-icon">📒</div>
+            <div>
+              <div class="res-card-title">Deep Work</div>
+              <div class="res-card-author">Cal Newport</div>
+            </div>
+          </div>
+          <div class="res-card-desc">O argumento de que a habilidade de se concentrar profundamente é a superpotência do século XXI — e como desenvolvê-la em um mundo cheio de distrações.</div>
+        </div>
+        <div class="res-card-footer">
+          <span class="res-tag">Inglês</span><span class="res-tag">Foco</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- YOUTUBE -->
+  <section class="res-section cat-rose">
+    <div class="res-header">
+      <div class="res-icon">▶️</div>
+      <div><h2>Canais no YouTube</h2><p>Vídeos sobre produtividade, estudo e aprendizado</p></div>
+      <span class="res-count">5 canais</span>
+    </div>
+    <div class="res-grid">
+
+      <div class="res-card">
+        <div class="res-card-accent"></div>
+        <div class="res-card-body">
+          <div class="res-card-head">
+            <div class="res-card-icon">🎬</div>
+            <div>
+              <div class="res-card-title">Ali Abdaal</div>
+              <div class="res-card-author">youtube.com/@aliabdaal</div>
+            </div>
+          </div>
+          <div class="res-card-desc">Ex-médico de Cambridge que virou referência em produtividade e estudo eficiente. Vídeos práticos sobre Pomodoro, Anki, Notion e gestão do tempo.</div>
+        </div>
+        <div class="res-card-footer">
+          <span class="res-tag">Inglês</span><span class="res-tag">Produtividade</span>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <div class="res-card-accent"></div>
+        <div class="res-card-body">
+          <div class="res-card-head">
+            <div class="res-card-icon">🎬</div>
+            <div>
+              <div class="res-card-title">Kurzgesagt</div>
+              <div class="res-card-author">youtube.com/@kurzgesagt</div>
+            </div>
+          </div>
+          <div class="res-card-desc">Animações científicas de altíssima qualidade. Excelente exemplo de Dual Coding na prática — conceitos complexos explicados com visuais poderosos.</div>
+        </div>
+        <div class="res-card-footer">
+          <span class="res-tag">Inglês</span><span class="res-tag">Ciência</span>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <div class="res-card-accent"></div>
+        <div class="res-card-body">
+          <div class="res-card-head">
+            <div class="res-card-icon">🎬</div>
+            <div>
+              <div class="res-card-title">Estudar com Método</div>
+              <div class="res-card-author">youtube.com/@estudarcommetodo</div>
+            </div>
+          </div>
+          <div class="res-card-desc">Canal brasileiro focado em técnicas de estudo: repetição espaçada, flashcards, gestão de tempo e preparação para concursos e vestibulares.</div>
+        </div>
+        <div class="res-card-footer">
+          <span class="res-tag">Português</span><span class="res-tag">Técnicas</span>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <div class="res-card-accent"></div>
+        <div class="res-card-body">
+          <div class="res-card-head">
+            <div class="res-card-icon">🎬</div>
+            <div>
+              <div class="res-card-title">Peixe Babel</div>
+              <div class="res-card-author">youtube.com/@peixebabel</div>
+            </div>
+          </div>
+          <div class="res-card-desc">Canal sobre aprendizado de idiomas que vai muito além das línguas — aborda neurociência do aprendizado, imersão, memória e como o cérebro adquire habilidades.</div>
+        </div>
+        <div class="res-card-footer">
+          <span class="res-tag">Português</span><span class="res-tag">Aprendizado</span>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <div class="res-card-accent"></div>
+        <div class="res-card-body">
+          <div class="res-card-head">
+            <div class="res-card-icon">🎬</div>
+            <div>
+              <div class="res-card-title">Andrew Huberman</div>
+              <div class="res-card-author">youtube.com/@hubermanlab</div>
+            </div>
+          </div>
+          <div class="res-card-desc">Neurocientista de Stanford que explica ciência do sono, foco, exercício e aprendizado. Os episódios sobre neuroplasticidade e memória são essenciais.</div>
+        </div>
+        <div class="res-card-footer">
+          <span class="res-tag">Inglês</span><span class="res-tag">Neurociência</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PODCASTS -->
+  <section class="res-section cat-emerald">
+    <div class="res-header">
+      <div class="res-icon">🎙️</div>
+      <div><h2>Podcasts</h2><p>Para ouvir enquanto caminha, dirige ou relaxa</p></div>
+      <span class="res-count">4 podcasts</span>
+    </div>
+    <div class="res-grid">
+
+      <div class="res-card">
+        <div class="res-card-accent"></div>
+        <div class="res-card-body">
+          <div class="res-card-head">
+            <div class="res-card-icon">🎧</div>
+            <div>
+              <div class="res-card-title">Huberman Lab</div>
+              <div class="res-card-author">Andrew Huberman</div>
+            </div>
+          </div>
+          <div class="res-card-desc">Episódios longos e densos sobre neurociência aplicada. Os episódios "How to Study" e "Optimal Learning Protocols" são referência absoluta.</div>
+        </div>
+        <div class="res-card-footer">
+          <span class="res-tag">Inglês</span><span class="res-tag">Neurociência</span>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <div class="res-card-accent"></div>
+        <div class="res-card-body">
+          <div class="res-card-head">
+            <div class="res-card-icon">🎧</div>
+            <div>
+              <div class="res-card-title">Nerdcast</div>
+              <div class="res-card-author">Jovem Nerd</div>
+            </div>
+          </div>
+          <div class="res-card-desc">O maior podcast brasileiro. Episódios sobre tecnologia, ciência e educação com linguagem acessível. Ótimo para manter a mente ativa de forma leve.</div>
+        </div>
+        <div class="res-card-footer">
+          <span class="res-tag">Português</span><span class="res-tag">Tecnologia</span>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <div class="res-card-accent"></div>
+        <div class="res-card-body">
+          <div class="res-card-head">
+            <div class="res-card-icon">🎧</div>
+            <div>
+              <div class="res-card-title">The Knowledge Project</div>
+              <div class="res-card-author">Shane Parrish — Farnam Street</div>
+            </div>
+          </div>
+          <div class="res-card-desc">Entrevistas profundas sobre como pessoas excepcionais pensam, aprendem e tomam decisões. Foco em modelos mentais e pensamento crítico.</div>
+        </div>
+        <div class="res-card-footer">
+          <span class="res-tag">Inglês</span><span class="res-tag">Pensamento</span>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <div class="res-card-accent"></div>
+        <div class="res-card-body">
+          <div class="res-card-head">
+            <div class="res-card-icon">🎧</div>
+            <div>
+              <div class="res-card-title">Café Brasil</div>
+              <div class="res-card-author">Luciano Pires</div>
+            </div>
+          </div>
+          <div class="res-card-desc">Episódios sobre filosofia, educação e desenvolvimento humano com profundidade intelectual. Vários episódios sobre aprendizado, leitura e formação de hábitos.</div>
+        </div>
+        <div class="res-card-footer">
+          <span class="res-tag">Português</span><span class="res-tag">Educação</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CURSOS GRATUITOS -->
+  <section class="res-section cat-amber">
+    <div class="res-header">
+      <div class="res-icon">🎓</div>
+      <div><h2>Cursos Gratuitos Online</h2><p>Para ir além e aprender com os melhores do mundo</p></div>
+      <span class="res-count">3 cursos</span>
+    </div>
+    <div class="res-grid">
+
+      <div class="res-card">
+        <div class="res-card-accent"></div>
+        <div class="res-card-body">
+          <div class="res-card-head">
+            <div class="res-card-icon">🖥️</div>
+            <div>
+              <div class="res-card-title">Learning How to Learn</div>
+              <div class="res-card-author">Coursera — Barbara Oakley / UCSD</div>
+            </div>
+          </div>
+          <div class="res-card-desc">O curso mais matriculado da história do Coursera. Cobre memória, procrastinação, sono e técnicas de estudo com embasamento científico sólido. 100% gratuito para auditar.</div>
+        </div>
+        <div class="res-card-footer">
+          <span class="res-tag">Inglês</span><span class="res-tag">Gratuito</span>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <div class="res-card-accent"></div>
+        <div class="res-card-body">
+          <div class="res-card-head">
+            <div class="res-card-icon">🖥️</div>
+            <div>
+              <div class="res-card-title">CS50</div>
+              <div class="res-card-author">Harvard / edX — David Malan</div>
+            </div>
+          </div>
+          <div class="res-card-desc">Introdução à Ciência da Computação de Harvard. Referência em didática — excelente para estudar programação e entender como os computadores funcionam de verdade.</div>
+        </div>
+        <div class="res-card-footer">
+          <span class="res-tag">Inglês</span><span class="res-tag">Gratuito</span>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <div class="res-card-accent"></div>
+        <div class="res-card-body">
+          <div class="res-card-head">
+            <div class="res-card-icon">🖥️</div>
+            <div>
+              <div class="res-card-title">Khan Academy</div>
+              <div class="res-card-author">khanacademy.org/pt-BR</div>
+            </div>
+          </div>
+          <div class="res-card-desc">Matemática, ciências, programação e muito mais — totalmente gratuito e em português. Usa repetição espaçada e prática ativa embutidas no próprio sistema.</div>
+        </div>
+        <div class="res-card-footer">
+          <span class="res-tag">Português</span><span class="res-tag">Gratuito</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  Prof. César Azevedo · IFRN Campus João Câmara
+  <div class="footer-links">
+    <a href="https://cesarazevedo.github.io">← Página inicial</a>
+    <a href="https://cesarazevedo.github.io/dicas">📚 Dicas de Estudo</a>
+  </div>
+</footer>
+
+<script>
+  const btn = document.getElementById('themeBtn');
+  const root = document.documentElement;
+  const saved = localStorage.getItem('recursos-theme') || 'light';
+  root.setAttribute('data-theme', saved);
+  btn.textContent = saved === 'dark' ? '☀️' : '🌙';
+  btn.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    btn.textContent = next === 'dark' ? '☀️' : '🌙';
+    localStorage.setItem('recursos-theme', next);
+  });
+</script>
+</body>
+</html>

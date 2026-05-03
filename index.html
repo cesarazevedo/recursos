@@ -60,8 +60,8 @@
 
     /* CARDS */
     .res-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
-    .res-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-sm); transition: transform .18s, box-shadow .18s; display: flex; flex-direction: column; }
-    .res-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .res-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-sm); transition: transform .18s, box-shadow .18s, border-color .18s; display: flex; flex-direction: column; color: inherit; text-decoration: none; }
+    .res-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--text-muted); }
     .res-card-accent { height: 4px; }
     .res-card-body { padding: 1.1rem 1.2rem; flex: 1; display: flex; flex-direction: column; gap: 0.4rem; }
     .res-card-head { display: flex; align-items: flex-start; gap: 0.75rem; }
@@ -137,7 +137,7 @@
     </div>
     <div class="res-grid">
 
-      <div class="res-card">
+      <a class="res-card" href="https://www.amazon.com.br/s?k=Make+It+Stick+Brown+Roediger" target="_blank" rel="noopener">
         <div class="res-card-accent"></div>
         <div class="res-card-body">
           <div class="res-card-head">
@@ -151,10 +151,11 @@
         </div>
         <div class="res-card-footer">
           <span class="res-tag">Inglês</span><span class="res-tag">Ciência Cognitiva</span>
+          <span class="res-link">Ver na Amazon ↗</span>
         </div>
-      </div>
+      </a>
 
-      <div class="res-card">
+      <a class="res-card" href="https://www.amazon.com.br/s?k=Uma+Mente+para+os+N%C3%BAmeros+Barbara+Oakley" target="_blank" rel="noopener">
         <div class="res-card-accent"></div>
         <div class="res-card-body">
           <div class="res-card-head">
@@ -168,10 +169,11 @@
         </div>
         <div class="res-card-footer">
           <span class="res-tag">Português</span><span class="res-tag">Estudo</span>
+          <span class="res-link">Ver na Amazon ↗</span>
         </div>
-      </div>
+      </a>
 
-      <div class="res-card">
+      <a class="res-card" href="https://www.amazon.com.br/s?k=Ultralearning+Scott+Young" target="_blank" rel="noopener">
         <div class="res-card-accent"></div>
         <div class="res-card-body">
           <div class="res-card-head">
@@ -185,10 +187,11 @@
         </div>
         <div class="res-card-footer">
           <span class="res-tag">Inglês</span><span class="res-tag">Autodidata</span>
+          <span class="res-link">Ver na Amazon ↗</span>
         </div>
-      </div>
+      </a>
 
-      <div class="res-card">
+      <a class="res-card" href="https://www.amazon.com.br/s?k=O+Poder+do+H%C3%A1bito+Charles+Duhigg" target="_blank" rel="noopener">
         <div class="res-card-accent"></div>
         <div class="res-card-body">
           <div class="res-card-head">
@@ -202,10 +205,11 @@
         </div>
         <div class="res-card-footer">
           <span class="res-tag">Português</span><span class="res-tag">Hábitos</span>
+          <span class="res-link">Ver na Amazon ↗</span>
         </div>
-      </div>
+      </a>
 
-      <div class="res-card">
+      <a class="res-card" href="https://www.amazon.com.br/s?k=Deep+Work+Cal+Newport" target="_blank" rel="noopener">
         <div class="res-card-accent"></div>
         <div class="res-card-body">
           <div class="res-card-head">
@@ -219,8 +223,9 @@
         </div>
         <div class="res-card-footer">
           <span class="res-tag">Inglês</span><span class="res-tag">Foco</span>
+          <span class="res-link">Ver na Amazon ↗</span>
         </div>
-      </div>
+      </a>
 
     </div>
   </section>
@@ -234,7 +239,7 @@
     </div>
     <div class="res-grid">
 
-      <div class="res-card">
+      <a class="res-card" href="https://www.youtube.com/@aliabdaal" target="_blank" rel="noopener">
         <div class="res-card-accent"></div>
         <div class="res-card-body">
           <div class="res-card-head">
@@ -248,10 +253,11 @@
         </div>
         <div class="res-card-footer">
           <span class="res-tag">Inglês</span><span class="res-tag">Produtividade</span>
+          <span class="res-link">Abrir canal ↗</span>
         </div>
-      </div>
+      </a>
 
-      <div class="res-card">
+      <a class="res-card" href="https://www.youtube.com/@kurzgesagt" target="_blank" rel="noopener">
         <div class="res-card-accent"></div>
         <div class="res-card-body">
           <div class="res-card-head">
@@ -265,10 +271,11 @@
         </div>
         <div class="res-card-footer">
           <span class="res-tag">Inglês</span><span class="res-tag">Ciência</span>
+          <span class="res-link">Abrir canal ↗</span>
         </div>
-      </div>
+      </a>
 
-      <div class="res-card">
+      <a class="res-card" href="https://www.youtube.com/@estudarcommetodo" target="_blank" rel="noopener">
         <div class="res-card-accent"></div>
         <div class="res-card-body">
           <div class="res-card-head">
@@ -282,10 +289,11 @@
         </div>
         <div class="res-card-footer">
           <span class="res-tag">Português</span><span class="res-tag">Técnicas</span>
+          <span class="res-link">Abrir canal ↗</span>
         </div>
-      </div>
+      </a>
 
-      <div class="res-card">
+      <a class="res-card" href="https://www.youtube.com/@peixebabel" target="_blank" rel="noopener">
         <div class="res-card-accent"></div>
         <div class="res-card-body">
           <div class="res-card-head">
@@ -299,10 +307,11 @@
         </div>
         <div class="res-card-footer">
           <span class="res-tag">Português</span><span class="res-tag">Aprendizado</span>
+          <span class="res-link">Abrir canal ↗</span>
         </div>
-      </div>
+      </a>
 
-      <div class="res-card">
+      <a class="res-card" href="https://www.youtube.com/@hubermanlab" target="_blank" rel="noopener">
         <div class="res-card-accent"></div>
         <div class="res-card-body">
           <div class="res-card-head">
@@ -316,8 +325,9 @@
         </div>
         <div class="res-card-footer">
           <span class="res-tag">Inglês</span><span class="res-tag">Neurociência</span>
+          <span class="res-link">Abrir canal ↗</span>
         </div>
-      </div>
+      </a>
 
     </div>
   </section>
@@ -331,7 +341,7 @@
     </div>
     <div class="res-grid">
 
-      <div class="res-card">
+      <a class="res-card" href="https://www.hubermanlab.com/podcast" target="_blank" rel="noopener">
         <div class="res-card-accent"></div>
         <div class="res-card-body">
           <div class="res-card-head">
@@ -345,10 +355,11 @@
         </div>
         <div class="res-card-footer">
           <span class="res-tag">Inglês</span><span class="res-tag">Neurociência</span>
+          <span class="res-link">Ouvir ↗</span>
         </div>
-      </div>
+      </a>
 
-      <div class="res-card">
+      <a class="res-card" href="https://jovemnerd.com.br/nerdcast/" target="_blank" rel="noopener">
         <div class="res-card-accent"></div>
         <div class="res-card-body">
           <div class="res-card-head">
@@ -362,10 +373,11 @@
         </div>
         <div class="res-card-footer">
           <span class="res-tag">Português</span><span class="res-tag">Tecnologia</span>
+          <span class="res-link">Ouvir ↗</span>
         </div>
-      </div>
+      </a>
 
-      <div class="res-card">
+      <a class="res-card" href="https://fs.blog/knowledge-project-podcast/" target="_blank" rel="noopener">
         <div class="res-card-accent"></div>
         <div class="res-card-body">
           <div class="res-card-head">
@@ -379,10 +391,11 @@
         </div>
         <div class="res-card-footer">
           <span class="res-tag">Inglês</span><span class="res-tag">Pensamento</span>
+          <span class="res-link">Ouvir ↗</span>
         </div>
-      </div>
+      </a>
 
-      <div class="res-card">
+      <a class="res-card" href="https://www.portalcafebrasil.com.br/todos/podcast/" target="_blank" rel="noopener">
         <div class="res-card-accent"></div>
         <div class="res-card-body">
           <div class="res-card-head">
@@ -396,8 +409,9 @@
         </div>
         <div class="res-card-footer">
           <span class="res-tag">Português</span><span class="res-tag">Educação</span>
+          <span class="res-link">Ouvir ↗</span>
         </div>
-      </div>
+      </a>
 
     </div>
   </section>
@@ -411,7 +425,7 @@
     </div>
     <div class="res-grid">
 
-      <div class="res-card">
+      <a class="res-card" href="https://www.coursera.org/learn/learning-how-to-learn" target="_blank" rel="noopener">
         <div class="res-card-accent"></div>
         <div class="res-card-body">
           <div class="res-card-head">
@@ -425,10 +439,11 @@
         </div>
         <div class="res-card-footer">
           <span class="res-tag">Inglês</span><span class="res-tag">Gratuito</span>
+          <span class="res-link">Acessar curso ↗</span>
         </div>
-      </div>
+      </a>
 
-      <div class="res-card">
+      <a class="res-card" href="https://cs50.harvard.edu/x/" target="_blank" rel="noopener">
         <div class="res-card-accent"></div>
         <div class="res-card-body">
           <div class="res-card-head">
@@ -442,10 +457,11 @@
         </div>
         <div class="res-card-footer">
           <span class="res-tag">Inglês</span><span class="res-tag">Gratuito</span>
+          <span class="res-link">Acessar curso ↗</span>
         </div>
-      </div>
+      </a>
 
-      <div class="res-card">
+      <a class="res-card" href="https://pt.khanacademy.org/" target="_blank" rel="noopener">
         <div class="res-card-accent"></div>
         <div class="res-card-body">
           <div class="res-card-head">
@@ -459,8 +475,9 @@
         </div>
         <div class="res-card-footer">
           <span class="res-tag">Português</span><span class="res-tag">Gratuito</span>
+          <span class="res-link">Acessar curso ↗</span>
         </div>
-      </div>
+      </a>
 
     </div>
   </section>
